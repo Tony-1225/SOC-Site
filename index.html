@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : index.html
-  バージョン   : v12
-  更新内容     : タイトル系を全て2要素に分割・white-space:nowrapで改行位置を完全制御
+  バージョン   : v13
+  更新内容     : SOC業務を2ブロックに分割・ロゴ煌びやか化・ヒーロー上余白縮小
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -42,8 +42,38 @@ nav {
   height: 64px; position: sticky; top: 0; z-index: 200;
   transition: background 0.3s;
 }
-.logo-mark { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 3px; color: var(--accent); line-height: 1.1; text-decoration: none; }
-.logo-mark small { display: block; font-family: 'Noto Sans JP', sans-serif; font-size: 9px; letter-spacing: 1.5px; color: var(--muted); font-weight: 300; }
+.logo-mark {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; letter-spacing: 4px;
+  line-height: 1.1; text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #e8c86a 0%, #c8a84b 40%, #fff8e7 60%, #c8a84b 80%, #a07830 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(200,168,75,0.4));
+}
+.logo-mark small {
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 9px; letter-spacing: 1.5px;
+  font-weight: 300;
+  background: none;
+  -webkit-text-fill-color: var(--muted);
+  filter: none;
+}
+.logo-shield {
+  width: 32px; height: 32px; flex-shrink: 0;
+  border: 1px solid rgba(200,168,75,0.5);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  background: linear-gradient(135deg, rgba(200,168,75,0.15), rgba(200,168,75,0.05));
+  box-shadow: 0 0 12px rgba(200,168,75,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+  color: var(--accent);
+  -webkit-text-fill-color: var(--accent);
+  filter: none;
+}
 .nav-links { display: flex; gap: 24px; list-style: none; }
 .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 1px; transition: color 0.2s; position: relative; white-space: nowrap; }
 .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.25s; }
@@ -62,7 +92,7 @@ nav {
   min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   text-align: center;
-  padding: 100px 24px 80px;
+  padding: 72px 24px 80px;
   overflow: hidden;
 }
 #particles { position: absolute; inset: 0; z-index: 0; }
@@ -225,6 +255,10 @@ nav {
 .panel-footer span { font-size: 10px; color: var(--muted); letter-spacing: 1px; }
 .pulse-ring { width:10px;height:10px;border-radius:50%;background:#2ecc71;position:relative; }
 .pulse-ring::after { content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(46,204,113,0.4);animation:ping 1.5s infinite; }
+.ops-block { margin-top: 24px; padding: 20px 22px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--r); }
+.ops-block + .ops-block { margin-top: 14px; }
+.ops-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.5px; }
+.ops-header i { font-size: 18px; }
 @keyframes ping { 0%{transform:scale(1);opacity:1} 100%{transform:scale(2.2);opacity:0} }
 
 /* ── VISUAL BANNER（写真差し替え想定） ── */
@@ -315,7 +349,10 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo-mark">Security Outcome<small>セキュリティアウトカム合同会社</small></a>
+  <a href="index.html" class="logo-mark">
+    <div class="logo-shield"><i class="ti ti-shield-bolt" aria-hidden="true"></i></div>
+    <div>Security Outcome<small>セキュリティアウトカム合同会社</small></div>
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html" class="active">HOME</a></li>
     <li><a href="services.html">業務内容</a></li>
@@ -479,18 +516,35 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
       <div class="fade-in">
         <div class="soc-badge"><span class="live-dot"></span>LIVE OPERATIONS</div>
         <h2 class="soc-title">
-  <span class="soc-title-line1">データセンター SOC・交通誘導</span>
-  <span class="soc-title-line2">現在稼働中</span>
-</h2>
-        <p>埼玉県内の大規模データセンターにおけるSOC業務と、首都圏近郊での交通誘導警備を現在稼働中です。</p>
-        <ul class="check-list">
-          <li>24時間365日の有人監視体制</li>
-          <li>インシデント発生時の迅速な初期対応</li>
-          <li>アクセス管理・入退室管理の徹底</li>
-          <li>大手外資金融機関のセキュリティ指揮経験を持つ代表が監修</li>
-          <li>交通誘導警備（首都圏近郊対応）</li>
-          <li>対応エリア：東京都・神奈川県・埼玉県</li>
-        </ul>
+          <span class="soc-title-line1">現在稼働中の業務</span>
+          <span class="soc-title-line2">ACTIVE OPERATIONS</span>
+        </h2>
+
+        <div class="ops-block">
+          <div class="ops-header">
+            <i class="ti ti-shield-check" aria-hidden="true"></i>
+            <span>データセンター SOCオペレーション</span>
+          </div>
+          <ul class="check-list">
+            <li>埼玉県内の大規模データセンターにて稼働中</li>
+            <li>24時間365日の有人監視体制</li>
+            <li>インシデント発生時の迅速な初期対応</li>
+            <li>アクセス管理・入退室管理の徹底</li>
+            <li>大手外資金融機関のセキュリティ指揮経験を持つ代表が監修</li>
+          </ul>
+        </div>
+
+        <div class="ops-block">
+          <div class="ops-header">
+            <i class="ti ti-car" aria-hidden="true"></i>
+            <span>交通誘導警備</span>
+          </div>
+          <ul class="check-list">
+            <li>首都圏近郊にて稼働中</li>
+            <li>対応エリア：東京都・神奈川県・埼玉県</li>
+            <li>工事現場・イベント・施設周辺の交通誘導</li>
+          </ul>
+        </div>
       </div>
       <div class="soc-panel fade-in fade-in-delay-2">
         <div class="panel-topbar">
