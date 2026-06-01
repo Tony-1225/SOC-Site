@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : company.html
-  バージョン   : v23
-  更新内容     : ナビ完全作り直し・CONTACT絶対中央・HOMEアイコン修正
+  バージョン   : v24
+  更新内容     : ナビをgrid 3列で完全作り直し
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -103,20 +103,94 @@
   .profile-table th { width: 110px; font-size: 11px; padding: 16px 0; }
   .profile-table td { padding: 16px 0 16px 16px; font-size: 13px; }
 }
+
+nav {
+  background: rgba(8,18,34,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  padding: 0 16px;
+  gap: 8px;
+}
+.nav-home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 20px;
+  transition: background 0.2s, border-color 0.2s;
+  -webkit-text-fill-color: var(--accent);
+}
+.nav-home-btn:hover {
+  background: rgba(200,168,75,0.1);
+  border-color: var(--accent);
+}
+.nav-home-empty {
+  width: 40px;
+  height: 40px;
+}
+.nav-center-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-center-btn {
+  background: var(--accent);
+  color: var(--navy);
+  padding: 9px 24px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.nav-center-btn:hover { background: var(--acc2); }
+.nav-right-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.nav-links { display: flex; gap: 20px; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 1px; transition: color 0.2s; white-space: nowrap; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--muted); border-radius: 2px; }
+.nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: rgba(8,18,34,0.98); padding: 16px 24px; gap: 16px; border-bottom: 1px solid var(--border); z-index: 199; }
+@media(max-width: 768px) {
+  nav { grid-template-columns: 44px 1fr 44px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-left"><a href="index.html" class="nav-home-btn" aria-label="ホームへ戻る"><i class="ti ti-home" aria-hidden="true"></i></a></div>
-  <div class="nav-center"><a href="contact.html" class="nav-center-btn">CONTACT</a></div>
-  <div class="nav-right">
+  <a href="index.html" class="nav-home-btn" aria-label="ホームへ戻る"><i class="ti ti-home" aria-hidden="true"></i></a>
+  <div class="nav-center-wrap">
+    <a href="contact.html" class="nav-center-btn">CONTACT</a>
+  </div>
+  <div class="nav-right-wrap">
     <ul class="nav-links" id="navLinks">
-    <li><a href="services.html">業務内容</a></li>
-    <li><a href="strength.html">強み</a></li>
-    <li><a href="company.html" class="active">会社情報</a></li>
-    <li><a href="team.html">メンバー</a></li>
-    <li><a href="recruit.html">採用情報</a></li>
+      <li><a href="services.html">業務内容</a></li>
+      <li><a href="strength.html">強み</a></li>
+      <li><a href="company.html" class="active">会社情報</a></li>
+      <li><a href="team.html">メンバー</a></li>
+      <li><a href="recruit.html">採用情報</a></li>
     </ul>
     <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
   </div>
