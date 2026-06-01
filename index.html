@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : index.html
-  バージョン   : v24
-  更新内容     : ナビをgrid 3列で完全作り直し
+  バージョン   : v26
+  更新内容     : SCROLLインジケーターの重なりを修正
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -150,7 +150,7 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy); color: 
 .stat span { font-size: 9px; color: var(--muted); letter-spacing: 1.5px; display: block; margin-top: 2px; }
 
 /* スクロールインジケーター */
-.scroll-hint { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.scroll-hint { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 32px; }
 .scroll-hint span { font-size: 9px; letter-spacing: 3px; color: var(--muted); }
 .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--accent), transparent); animation: scrollDown 1.8s infinite; }
 @keyframes scrollDown { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
