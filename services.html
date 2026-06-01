@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : services.html
-  バージョン   : v22
-  更新内容     : ナビ3分割・HOMEアイコンゴールド化・CONTACT全ページ中央配置
+  バージョン   : v23
+  更新内容     : ナビ完全作り直し・CONTACT絶対中央・HOMEアイコン修正
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -104,19 +104,17 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-home-btn" aria-label="ホームへ戻る"><i class="ti ti-home" aria-hidden="true"></i></a>
-  <a href="contact.html" class="nav-btn nav-center-btn">CONTACT</a>
+  <div class="nav-left"><a href="index.html" class="nav-home-btn" aria-label="ホームへ戻る"><i class="ti ti-home" aria-hidden="true"></i></a></div>
+  <div class="nav-center"><a href="contact.html" class="nav-center-btn">CONTACT</a></div>
   <div class="nav-right">
-  <ul class="nav-links" id="navLinks">
-<li><a href="services.html" class="active">業務内容</a></li>
+    <ul class="nav-links" id="navLinks">
+    <li><a href="services.html" class="active">業務内容</a></li>
     <li><a href="strength.html">強み</a></li>
     <li><a href="company.html">会社情報</a></li>
     <li><a href="team.html">メンバー</a></li>
     <li><a href="recruit.html">採用情報</a></li>
-  </ul>
-  <div class="nav-hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </div>
+    </ul>
+    <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
