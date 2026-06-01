@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : index.html
-  バージョン   : v7
-  更新内容     : トップページ全面リニューアル（パーティクル・カウントアップ・フェードイン・構成強化）
+  バージョン   : v8
+  更新内容     : 地名削除・全<br>タグ除去・自然な折り返しに統一
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -141,7 +141,7 @@ nav {
 .intro-section { padding: 100px 0; background: var(--navy); }
 .intro-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .intro-label { font-size: 10px; letter-spacing: 3px; color: var(--accent); margin-bottom: 12px; display: block; }
-.intro-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,4vw,46px); letter-spacing: 0.08em; color: #fff; line-height: 1.15; margin-bottom: 24px; }
+.intro-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,4vw,46px); letter-spacing: 0.08em; color: #fff; line-height: 1.2; margin-bottom: 24px; word-break: keep-all; overflow-wrap: normal; }
 .intro-text { color: var(--muted); font-size: 13px; line-height: 2.2; font-weight: 300; margin-bottom: 16px; }
 .intro-visual {
   position: relative; border-radius: 8px; overflow: hidden;
@@ -167,7 +167,7 @@ nav {
 .num-card:hover { background: var(--navy2); }
 .num-val { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px,6vw,64px); color: var(--accent); letter-spacing: 2px; line-height: 1; display: block; margin-bottom: 8px; }
 .num-unit { font-size: 14px; color: var(--accent); font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
-.num-label { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.7; }
+.num-label { font-size: 11px; color: var(--muted); margin-top: 10px; line-height: 1.8; word-break: normal; overflow-wrap: break-word; }
 
 /* ── SERVICES ── */
 .services-section { padding: 100px 0; background: var(--navy2); }
@@ -324,7 +324,7 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
   <div class="hero-overlay"></div>
   <div class="hero-grid-bg"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow fade-in"><span class="live-dot"></span>SECURITY &amp; RISK CONTROL — TOKYO / KANAGAWA / SAITAMA</div>
+    <div class="hero-eyebrow fade-in"><span class="live-dot"></span>SECURITY &amp; RISK CONTROL</div>
     <h1 class="hero-title fade-in fade-in-delay-1">
       安全を <em>結果</em> で示す
       <span class="line2">SECURITY OUTCOME LLC</span>
@@ -368,7 +368,7 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
     <div class="intro-inner">
       <div class="fade-in">
         <span class="intro-label">ABOUT US</span>
-        <h2 class="intro-title">プロフェッショナルによる<br>本物のセキュリティ</h2>
+        <h2 class="intro-title">プロフェッショナルによる本物のセキュリティ</h2>
         <p class="intro-text">陸上自衛隊・大手外資金融機関・某国ロイヤルファミリー警護の経験を持つ代表のもと、法律知識と反復訓練に裏打ちされた高水準の警備を提供します。</p>
         <p class="intro-text">単なる「立っているだけ」の警備ではなく、リスクを予測し、未然防止から緊急初期対応まで一貫して担う「結果を出す警備」が私たちの使命です。</p>
         <a href="team.html" class="btn-ghost" style="margin-top:8px">代表プロフィールを見る →</a>
@@ -392,19 +392,19 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
     <div class="numbers-grid">
       <div class="num-card fade-in">
         <span class="num-val" data-count="24"><span>0</span><span class="num-unit">H</span></span>
-        <p class="num-label">SOC 有人監視体制<br>365日稼働中</p>
+        <p class="num-label">SOC 有人監視体制 365日稼働中</p>
       </div>
       <div class="num-card fade-in fade-in-delay-1">
         <span class="num-val" data-count="4"><span>0</span><span class="num-unit">都県</span></span>
-        <p class="num-label">対応エリア<br>東京・神奈川・埼玉・全国</p>
+        <p class="num-label">対応エリア 東京・神奈川・埼玉・全国</p>
       </div>
       <div class="num-card fade-in fade-in-delay-2">
         <span class="num-val" data-count="39"><span>0</span><span class="num-unit">年</span></span>
-        <p class="num-label">顧問最長キャリア<br>元警視庁出身</p>
+        <p class="num-label">顧問最長キャリア 元警視庁出身</p>
       </div>
       <div class="num-card fade-in fade-in-delay-3">
         <span class="num-val" data-count="0"><span>0</span><span class="num-unit">件</span></span>
-        <p class="num-label">本日の異常検知<br>SOC正常稼働中</p>
+        <p class="num-label">本日の異常検知 SOC正常稼働中</p>
       </div>
     </div>
   </div>
@@ -591,7 +591,7 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="f-logo">Security Outcome</div>
-        <p>セキュリティアウトカム合同会社<br>神奈川県公安委員会警備業認定 第45001382号<br>〒230-0027 神奈川県横浜市鶴見区菅沢町13-25-104</p>
+        <p>セキュリティアウトカム合同会社</p><p style="margin-top:4px">神奈川県公安委員会警備業認定 第45001382号</p><p style="margin-top:4px">〒230-0027 神奈川県横浜市鶴見区菅沢町13-25-104</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
