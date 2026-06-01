@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : contact.html
-  バージョン   : v6
-  更新内容     : フォームはみ出し修正・HOME追加・ハンバーガー改善
+  バージョン   : v7
+  更新内容     : ナビをHOMEアイコン・CONTACTボタンに統一
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -103,16 +103,15 @@
 <body>
 
 <nav>
-  <a href="index.html" class="logo-mark">Security Outcome<small>セキュリティアウトカム合同会社</small></a>
+  <a href="index.html" class="nav-home-btn" aria-label="ホームへ戻る"><i class="ti ti-home" aria-hidden="true"></i></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="services.html">業務内容</a></li>
+<li><a href="services.html">業務内容</a></li>
     <li><a href="strength.html">強み</a></li>
     <li><a href="company.html">会社情報</a></li>
     <li><a href="team.html">メンバー</a></li>
     <li><a href="recruit.html">採用情報</a></li>
   </ul>
-  <a href="contact.html" class="nav-btn" style="background:var(--navy3);color:var(--accent);border:1px solid var(--border)">お問い合わせ</a>
+  <a href="contact.html" class="nav-btn" style="background:var(--navy3);color:var(--accent);border:1px solid var(--border)">CONTACT</a>
   <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
     <span></span><span></span><span></span>
   </div>
