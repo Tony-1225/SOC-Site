@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : index.html
-  バージョン   : v10
-  更新内容     : word-break:break-allを全廃・日本語折り返しをnormalに統一
+  バージョン   : v12
+  更新内容     : タイトル系を全て2要素に分割・white-space:nowrapで改行位置を完全制御
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -89,10 +89,10 @@ nav {
 
 .hero-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 11vw, 110px);
   letter-spacing: 0.05em; line-height: 1.0;
   color: #fff; margin-bottom: 12px;
 }
+.hero-line1 { display: block; font-size: clamp(36px, 9vw, 110px); white-space: nowrap; }
 .hero-title em { color: var(--accent); font-style: normal; }
 .hero-title .line2 { display: block; font-size: clamp(22px, 4.5vw, 48px); letter-spacing: 0.15em; color: rgba(255,255,255,0.5); font-weight: 400; margin-top: 4px; }
 
@@ -144,8 +144,10 @@ nav {
 .intro-section { padding: 100px 0; background: var(--navy); }
 .intro-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .intro-label { font-size: 10px; letter-spacing: 3px; color: var(--accent); margin-bottom: 12px; display: block; }
-.intro-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(18px,4.5vw,46px); letter-spacing: 0.06em; color: #fff; line-height: 1.3; margin-bottom: 24px; word-break: normal; overflow-wrap: break-word; max-width: 100%; }
-.intro-text { color: var(--muted); font-size: 13px; line-height: 2; font-weight: 300; margin-bottom: 16px; word-break: normal; overflow-wrap: break-word; text-align: left; }
+.intro-title { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.06em; color: #fff; line-height: 1.25; margin-bottom: 24px; }
+.title-line1 { display: block; font-size: clamp(14px,3.2vw,26px); color: rgba(255,255,255,0.6); font-weight: 400; margin-bottom: 4px; white-space: nowrap; }
+.title-line2 { display: block; font-size: clamp(22px,5vw,46px); color: #fff; white-space: nowrap; }
+.intro-text { color: var(--muted); font-size: 13px; line-height: 1.85; font-weight: 300; margin-bottom: 12px; word-break: normal; overflow-wrap: break-word; text-align: left; }
 .intro-visual {
   position: relative; border-radius: 8px; overflow: hidden;
   border: 1px solid var(--border); aspect-ratio: 4/3;
@@ -175,7 +177,7 @@ nav {
 /* ── SERVICES ── */
 .services-section { padding: 100px 0; background: var(--navy2); }
 .sec-label { font-size: 10px; letter-spacing: 3px; color: var(--accent); margin-bottom: 10px; display: block; }
-.sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(22px,5vw,46px); letter-spacing: 0.06em; color: #fff; line-height: 1.15; margin-bottom: 10px; word-break: normal; overflow-wrap: break-word; }
+.sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,5vw,46px); letter-spacing: 0.06em; color: #fff; line-height: 1.15; margin-bottom: 10px; white-space: nowrap; }
 .sec-sub { color: var(--muted); font-size: 13px; line-height: 2; max-width: 480px; font-weight: 300; }
 .sec-head { margin-bottom: 56px; }
 .grid-services { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
@@ -196,7 +198,9 @@ nav {
 .soc-section { background: var(--navy); padding: 100px 0; border-top: 1px solid var(--border); }
 .soc-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .soc-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(200,168,75,0.08); border: 1px solid var(--border); padding: 6px 14px; border-radius: 2px; font-size: 10px; color: var(--accent); letter-spacing: 2px; margin-bottom: 20px; }
-.soc-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(24px,4vw,40px); letter-spacing: 0.07em; color: #fff; margin-bottom: 16px; line-height: 1.2; }
+.soc-section .soc-title { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.07em; color: #fff; margin-bottom: 16px; line-height: 1.2; }
+.soc-title-line1 { display: block; font-size: clamp(16px,3vw,28px); color: rgba(255,255,255,0.7); white-space: nowrap; }
+.soc-title-line2 { display: block; font-size: clamp(24px,4vw,40px); color: #fff; white-space: nowrap; }
 .soc-section p { color: var(--muted); font-size: 13px; line-height: 2; margin-bottom: 20px; font-weight: 300; word-break: normal; overflow-wrap: break-word; }
 .check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .check-list li { font-size: 13px; color: var(--text); display: flex; align-items: flex-start; gap: 10px; line-height: 1.8; }
@@ -332,7 +336,7 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
   <div class="hero-content">
     <div class="hero-eyebrow fade-in"><span class="live-dot"></span>SECURITY &amp; RISK CONTROL</div>
     <h1 class="hero-title fade-in fade-in-delay-1">
-      安全を <em>結果</em> で示す
+      <span class="hero-line1">安全を <em>結果</em> で示す</span>
       <span class="line2">SECURITY OUTCOME LLC</span>
     </h1>
     <p class="hero-desc fade-in fade-in-delay-2">施設警備・身辺警護・SOCオペレーション・交通誘導。経験豊富なプロフェッショナルがあらゆる脅威からお客様と大切なものを守ります。</p>
@@ -374,7 +378,10 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
     <div class="intro-inner">
       <div class="fade-in">
         <span class="intro-label">ABOUT US</span>
-        <h2 class="intro-title">プロフェッショナルによる本物のセキュリティ</h2>
+        <h2 class="intro-title">
+  <span class="title-line1">プロフェッショナルによる</span>
+  <span class="title-line2">本物のセキュリティ</span>
+</h2>
         <p class="intro-text">陸上自衛隊・大手外資金融機関・某国ロイヤルファミリー警護の経験を持つ代表のもと、法律知識と反復訓練に裏打ちされた高水準の警備を提供します。</p>
         <p class="intro-text">単なる「立っているだけ」の警備ではなく、リスクを予測し、未然防止から緊急初期対応まで一貫して担う「結果を出す警備」が私たちの使命です。</p>
         <a href="team.html" class="btn-ghost" style="margin-top:8px">代表プロフィールを見る →</a>
@@ -471,7 +478,10 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
     <div class="soc-inner">
       <div class="fade-in">
         <div class="soc-badge"><span class="live-dot"></span>LIVE OPERATIONS</div>
-        <h2>データセンター SOC・交通誘導 現在稼働中</h2>
+        <h2 class="soc-title">
+  <span class="soc-title-line1">データセンター SOC・交通誘導</span>
+  <span class="soc-title-line2">現在稼働中</span>
+</h2>
         <p>埼玉県内の大規模データセンターにおけるSOC業務と、首都圏近郊での交通誘導警備を現在稼働中です。</p>
         <ul class="check-list">
           <li>24時間365日の有人監視体制</li>
