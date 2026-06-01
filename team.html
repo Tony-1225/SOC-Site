@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : team.html
-  バージョン   : v5
-  更新内容     : 全ファイルv5統一
+  バージョン   : v6
+  更新内容     : HOME追加・ハンバーガー改善・レイアウト修正
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -15,8 +15,8 @@
 <style>
 .ceo-section {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 56px;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  gap: 48px;
   align-items: start;
 }
 .ceo-photo {
@@ -116,6 +116,7 @@
 <nav>
   <a href="index.html" class="logo-mark">Security Outcome<small>セキュリティアウトカム合同会社</small></a>
   <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">HOME</a></li>
     <li><a href="services.html">業務内容</a></li>
     <li><a href="strength.html">強み</a></li>
     <li><a href="company.html">会社情報</a></li>
@@ -264,6 +265,12 @@
   </div>
 </footer>
 
-<style>.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(8,18,34,0.98);padding:16px 24px;gap:16px;border-bottom:1px solid var(--border);}</style>
+<style>
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:background 0.2s;}
+.nav-hamburger:hover span{background:var(--accent);}
+.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(8,18,34,0.98);padding:16px 24px;gap:16px;border-bottom:1px solid var(--border);z-index:199;}
+@media(max-width:768px){.nav-hamburger{display:flex;}}
+</style>
 </body>
 </html>

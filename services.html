@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : services.html
-  バージョン   : v5
-  更新内容     : 全ファイルv5統一
+  バージョン   : v6
+  更新内容     : HOME追加・ハンバーガー改善・レイアウト修正
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -21,10 +21,10 @@
   align-items: center;
   padding: 64px 0;
   border-bottom: 1px solid var(--border);
+  direction: ltr;
 }
 .svc-detail:last-child { border-bottom: none; }
-.svc-detail.reverse { direction: rtl; }
-.svc-detail.reverse > * { direction: ltr; }
+.svc-detail.reverse .svc-visual { order: -1; }
 .svc-icon-lg {
   width: 64px; height: 64px;
   border: 1px solid var(--border);
@@ -96,7 +96,7 @@
 
 @media (max-width: 768px) {
   .svc-detail { grid-template-columns: 1fr; gap: 28px; }
-  .svc-detail.reverse { direction: ltr; }
+  .svc-detail.reverse .svc-visual { order: 0; }
   .svc-visual { aspect-ratio: 16/7; }
 }
 </style>
@@ -106,6 +106,7 @@
 <nav>
   <a href="index.html" class="logo-mark">Security Outcome<small>セキュリティアウトカム合同会社</small></a>
   <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">HOME</a></li>
     <li><a href="services.html" class="active">業務内容</a></li>
     <li><a href="strength.html">強み</a></li>
     <li><a href="company.html">会社情報</a></li>

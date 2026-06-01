@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : contact.html
-  バージョン   : v5
-  更新内容     : 全ファイルv5統一
+  バージョン   : v6
+  更新内容     : フォームはみ出し修正・HOME追加・ハンバーガー改善
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -34,7 +34,7 @@
   color: var(--accent); font-size: 20px;
 }
 .ci-label { font-size: 10px; color: var(--muted); letter-spacing: 2px; margin-bottom: 3px; }
-.ci-val { font-size: 14px; color: #fff; font-weight: 500; text-decoration: none; }
+.ci-val { font-size: 14px; color: #fff; font-weight: 500; text-decoration: none; overflow-wrap: break-word; word-break: break-all; }
 .ci-val:hover { color: var(--accent); }
 
 /* フォーム */
@@ -42,7 +42,7 @@
   background: var(--navy2);
   border: 1px solid var(--border);
   border-radius: var(--r);
-  padding: 36px;
+  padding: 28px 20px;
 }
 .form-row { margin-bottom: 20px; }
 .form-row label {
@@ -60,6 +60,7 @@
 .form-row select,
 .form-row textarea {
   width: 100%;
+  box-sizing: border-box;
   background: var(--navy);
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -95,7 +96,7 @@
 
 @media (max-width: 768px) {
   .contact-layout { grid-template-columns: 1fr; gap: 32px; }
-  .form-box { padding: 24px 20px; }
+  .form-box { padding: 20px 16px; }
 }
 </style>
 </head>
@@ -104,6 +105,7 @@
 <nav>
   <a href="index.html" class="logo-mark">Security Outcome<small>セキュリティアウトカム合同会社</small></a>
   <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">HOME</a></li>
     <li><a href="services.html">業務内容</a></li>
     <li><a href="strength.html">強み</a></li>
     <li><a href="company.html">会社情報</a></li>
@@ -219,6 +221,12 @@
   </div>
 </footer>
 
-<style>.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(8,18,34,0.98);padding:16px 24px;gap:16px;border-bottom:1px solid var(--border);}</style>
+<style>
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:background 0.2s;}
+.nav-hamburger:hover span{background:var(--accent);}
+.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(8,18,34,0.98);padding:16px 24px;gap:16px;border-bottom:1px solid var(--border);z-index:199;}
+@media(max-width:768px){.nav-hamburger{display:flex;}}
+</style>
 </body>
 </html>

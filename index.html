@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : index.html
-  バージョン   : v5
-  更新内容     : ヒーロースタッツを日本語化
+  バージョン   : v6
+  更新内容     : HOME追加・ボタンリンク修正・タイトルスマホ対応
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -197,12 +197,13 @@ nav {
 /* タイトル：句読点なし・スマホで収まるサイズ */
 .hero-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(36px, 10vw, 88px);
+  font-size: clamp(28px, 8vw, 88px);
   letter-spacing: 0.06em;
   line-height: 1.05;
   color: #fff;
   margin-bottom: 24px;
-  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
 }
 .hero-title em { color: var(--accent); font-style: normal; }
 
@@ -604,6 +605,7 @@ footer p { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
     <small>セキュリティアウトカム合同会社</small>
   </a>
   <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">HOME</a></li>
     <li><a href="services.html">業務内容</a></li>
     <li><a href="strength.html">強み</a></li>
     <li><a href="company.html">会社情報</a></li>
@@ -636,8 +638,8 @@ footer p { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
     <p class="hero-desc">施設警備・身辺警護・SOCオペレーション。経験豊富なプロフェッショナルがあらゆる脅威からお客様を守ります。</p>
 
     <div class="hero-btns">
-      <a href="#contact" class="btn-gold">無料でご相談</a>
-      <a href="#services" class="btn-ghost">業務内容を見る</a>
+      <a href="contact.html" class="btn-gold">無料でご相談</a>
+      <a href="services.html" class="btn-ghost">業務内容を見る</a>
     </div>
 
     <div class="hero-stats">
