@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : contact.html
-  バージョン   : v24
-  更新内容     : ナビをgrid 3列で完全作り直し
+  バージョン   : v25
+  更新内容     : Web3Formsフォーム送信機能を実装
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -236,27 +236,31 @@ nav {
         </p>
       </div>
 
-      <div class="form-box">
+      <form class="form-box" id="contactForm">
+        <input type="hidden" name="access_key" value="7132f312-d6e1-4bbc-8a22-b5a142dd17c1">
+        <input type="hidden" name="subject" value="【セキュリティアウトカム】お問い合わせが届きました">
+        <input type="hidden" name="from_name" value="セキュリティアウトカム お問い合わせフォーム">
+        <input type="checkbox" name="botcheck" style="display:none">
         <p class="form-note">※ お問い合わせはすべて無料です。内容を確認の上、担当者よりご連絡します。</p>
         <div class="form-row">
           <label>お名前<span class="req">必須</span></label>
-          <input type="text" placeholder="例：山田 太郎">
+          <input type="text" name="name" placeholder="例：山田 太郎" required>
         </div>
         <div class="form-row">
           <label>会社名・団体名</label>
-          <input type="text" placeholder="例：株式会社〇〇">
+          <input type="text" name="company" placeholder="例：株式会社〇〇">
         </div>
         <div class="form-row">
           <label>メールアドレス<span class="req">必須</span></label>
-          <input type="email" placeholder="例：info@example.com">
+          <input type="email" name="email" placeholder="例：info@example.com" required>
         </div>
         <div class="form-row">
           <label>電話番号</label>
-          <input type="tel" placeholder="例：045-000-0000">
+          <input type="tel" name="phone" placeholder="例：045-000-0000">
         </div>
         <div class="form-row">
           <label>お問い合わせ種別<span class="req">必須</span></label>
-          <select>
+          <select name="category" required>
             <option value="">選択してください</option>
             <option>施設警備について</option>
             <option>身辺警護について</option>
@@ -269,10 +273,11 @@ nav {
         </div>
         <div class="form-row">
           <label>お問い合わせ内容<span class="req">必須</span></label>
-          <textarea placeholder="ご相談内容・ご要望などお気軽にご記入ください"></textarea>
+          <textarea name="message" placeholder="ご相談内容・ご要望などお気軽にご記入ください" required></textarea>
         </div>
-        <button type="button" class="form-submit">送信する →</button>
-      </div>
+        <div id="form-result" style="display:none;padding:12px 16px;border-radius:4px;font-size:13px;margin-bottom:12px;"></div>
+        <button type="submit" class="form-submit" id="form-btn">送信する →</button>
+      </form>
     </div>
   </div>
 </section>
@@ -301,5 +306,40 @@ nav {
 .nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(8,18,34,0.98);padding:16px 24px;gap:16px;border-bottom:1px solid var(--border);z-index:199;}
 @media(max-width:768px){.nav-hamburger{display:flex;}}
 </style>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('form-btn');
+  const result = document.getElementById('form-result');
+  btn.textContent = '送信中...';
+  btn.disabled = true;
+
+  const formData = new FormData(this);
+  const res = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData
+  });
+  const data = await res.json();
+
+  if (data.success) {
+    result.style.display = 'block';
+    result.style.background = 'rgba(46,204,113,0.1)';
+    result.style.border = '1px solid rgba(46,204,113,0.3)';
+    result.style.color = '#2ecc71';
+    result.textContent = 'お問い合わせを受け付けました。担当者よりご連絡します。';
+    this.reset();
+    btn.textContent = '送信完了';
+  } else {
+    result.style.display = 'block';
+    result.style.background = 'rgba(231,76,60,0.1)';
+    result.style.border = '1px solid rgba(231,76,60,0.3)';
+    result.style.color = '#e74c3c';
+    result.textContent = '送信に失敗しました。お手数ですが、メールにてご連絡ください。';
+    btn.textContent = '送信する →';
+    btn.disabled = false;
+  }
+});
+</script>
 </body>
 </html>
