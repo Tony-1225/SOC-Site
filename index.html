@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : index.html
-  バージョン   : v13
-  更新内容     : SOC業務を2ブロックに分割・ロゴ煌びやか化・ヒーロー上余白縮小
+  バージョン   : v14
+  更新内容     : ヒーローに煌びやか会社名を追加・シマーアニメーション・ナビロゴはシンプルに戻す
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -42,38 +42,8 @@ nav {
   height: 64px; position: sticky; top: 0; z-index: 200;
   transition: background 0.3s;
 }
-.logo-mark {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px; letter-spacing: 4px;
-  line-height: 1.1; text-decoration: none;
-  display: flex; align-items: center; gap: 10px;
-  background: linear-gradient(135deg, #e8c86a 0%, #c8a84b 40%, #fff8e7 60%, #c8a84b 80%, #a07830 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 8px rgba(200,168,75,0.4));
-}
-.logo-mark small {
-  display: block;
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 9px; letter-spacing: 1.5px;
-  font-weight: 300;
-  background: none;
-  -webkit-text-fill-color: var(--muted);
-  filter: none;
-}
-.logo-shield {
-  width: 32px; height: 32px; flex-shrink: 0;
-  border: 1px solid rgba(200,168,75,0.5);
-  border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-  background: linear-gradient(135deg, rgba(200,168,75,0.15), rgba(200,168,75,0.05));
-  box-shadow: 0 0 12px rgba(200,168,75,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
-  color: var(--accent);
-  -webkit-text-fill-color: var(--accent);
-  filter: none;
-}
+.logo-mark { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 3px; color: var(--accent); line-height: 1.1; text-decoration: none; }
+.logo-mark small { display: block; font-family: 'Noto Sans JP', sans-serif; font-size: 9px; letter-spacing: 1.5px; color: var(--muted); font-weight: 300; }
 .nav-links { display: flex; gap: 24px; list-style: none; }
 .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 1px; transition: color 0.2s; position: relative; white-space: nowrap; }
 .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: var(--accent); transition: width 0.25s; }
@@ -107,6 +77,33 @@ nav {
 }
 .hero-content { position: relative; z-index: 3; max-width: 800px; width: 100%; }
 
+.hero-company {
+  margin-bottom: 28px;
+}
+.hero-company-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(38px, 9vw, 80px);
+  letter-spacing: 0.12em;
+  line-height: 1.0;
+  background: linear-gradient(135deg, #a07830 0%, #c8a84b 25%, #fff0b0 50%, #c8a84b 75%, #a07830 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+  filter: drop-shadow(0 0 16px rgba(200,168,75,0.5));
+}
+.hero-company-ja {
+  font-size: clamp(10px, 2vw, 14px);
+  letter-spacing: 0.25em;
+  color: rgba(200,168,75,0.7);
+  margin-top: 4px;
+  font-weight: 300;
+}
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
   border: 1px solid var(--border);
@@ -349,10 +346,7 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo-mark">
-    <div class="logo-shield"><i class="ti ti-shield-bolt" aria-hidden="true"></i></div>
-    <div>Security Outcome<small>セキュリティアウトカム合同会社</small></div>
-  </a>
+  <a href="index.html" class="logo-mark">Security Outcome<small>セキュリティアウトカム合同会社</small></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html" class="active">HOME</a></li>
     <li><a href="services.html">業務内容</a></li>
@@ -371,7 +365,11 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
   <div class="hero-overlay"></div>
   <div class="hero-grid-bg"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow fade-in"><span class="live-dot"></span>SECURITY &amp; RISK CONTROL</div>
+    <div class="hero-company fade-in">
+      <div class="hero-company-name">SECURITY OUTCOME</div>
+      <div class="hero-company-ja">セキュリティアウトカム合同会社</div>
+    </div>
+    <div class="hero-eyebrow fade-in fade-in-delay-1"><span class="live-dot"></span>SECURITY &amp; RISK CONTROL</div>
     <h1 class="hero-title fade-in fade-in-delay-1">
       <span class="hero-line1">安全を <em>結果</em> で示す</span>
       <span class="line2">SECURITY OUTCOME LLC</span>
