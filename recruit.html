@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : recruit.html
-  バージョン   : v7
-  更新内容     : ナビをHOMEアイコン・CONTACTボタンに統一
+  バージョン   : v22
+  更新内容     : ナビ3分割・HOMEアイコンゴールド化・CONTACT全ページ中央配置
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -122,6 +122,8 @@
 
 <nav>
   <a href="index.html" class="nav-home-btn" aria-label="ホームへ戻る"><i class="ti ti-home" aria-hidden="true"></i></a>
+  <a href="contact.html" class="nav-btn nav-center-btn">CONTACT</a>
+  <div class="nav-right">
   <ul class="nav-links" id="navLinks">
 <li><a href="services.html">業務内容</a></li>
     <li><a href="strength.html">強み</a></li>
@@ -129,9 +131,9 @@
     <li><a href="team.html">メンバー</a></li>
     <li><a href="recruit.html" class="active">採用情報</a></li>
   </ul>
-  <a href="contact.html" class="nav-btn">CONTACT</a>
   <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
     <span></span><span></span><span></span>
+  </div>
   </div>
 </nav>
 
