@@ -1,3 +1,9 @@
+<!--
+  ファイル種別 : CSS
+  ファイル名   : common.css
+  バージョン   : v4
+  更新内容     : 全ファイルv4統一・バージョン管理開始
+-->
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Bebas+Neue&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
