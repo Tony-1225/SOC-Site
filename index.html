@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : index.html
-  バージョン   : v14
-  更新内容     : ヒーローに煌びやか会社名を追加・シマーアニメーション・ナビロゴはシンプルに戻す
+  バージョン   : v15
+  更新内容     : ロゴエリアをプレースホルダーのみに・キャッチ下に煌びやか会社名配置
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -77,28 +77,33 @@ nav {
 }
 .hero-content { position: relative; z-index: 3; max-width: 800px; width: 100%; }
 
-.hero-company {
+.hero-logo-area {
   margin-bottom: 28px;
 }
-.hero-company-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(38px, 9vw, 80px);
-  letter-spacing: 0.12em;
-  line-height: 1.0;
-  background: linear-gradient(135deg, #a07830 0%, #c8a84b 25%, #fff0b0 50%, #c8a84b 75%, #a07830 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 4s linear infinite;
-  filter: drop-shadow(0 0 16px rgba(200,168,75,0.5));
+.hero-logo-placeholder {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 80px; height: 80px;
+  border: 1px dashed rgba(200,168,75,0.4);
+  border-radius: 10px;
+  background: rgba(200,168,75,0.05);
+  color: rgba(200,168,75,0.4);
+  font-size: 28px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: border-color 0.2s;
 }
-.hero-company-ja {
-  font-size: clamp(10px, 2vw, 14px);
-  letter-spacing: 0.25em;
-  color: rgba(200,168,75,0.7);
-  margin-top: 4px;
-  font-weight: 300;
+.hero-logo-placeholder span {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(200,168,75,0.35);
+  font-family: 'Bebas Neue', sans-serif;
+}
+.hero-logo-placeholder:hover {
+  border-color: rgba(200,168,75,0.7);
 }
 @keyframes shimmer {
   0% { background-position: 0% center; }
@@ -121,7 +126,32 @@ nav {
 }
 .hero-line1 { display: block; font-size: clamp(36px, 9vw, 110px); white-space: nowrap; }
 .hero-title em { color: var(--accent); font-style: normal; }
-.hero-title .line2 { display: block; font-size: clamp(22px, 4.5vw, 48px); letter-spacing: 0.15em; color: rgba(255,255,255,0.5); font-weight: 400; margin-top: 4px; }
+.hero-brand {
+  margin-bottom: 28px;
+  margin-top: 10px;
+}
+.hero-brand-en {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(20px, 5vw, 48px);
+  letter-spacing: 0.15em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #a07830 0%, #c8a84b 25%, #fff0b0 50%, #c8a84b 75%, #a07830 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(200,168,75,0.4));
+  white-space: nowrap;
+}
+.hero-brand-ja {
+  font-size: clamp(10px, 2vw, 13px);
+  letter-spacing: 0.2em;
+  color: rgba(200,168,75,0.65);
+  margin-top: 4px;
+  font-weight: 300;
+  white-space: nowrap;
+}
 
 .hero-desc {
   color: var(--muted); font-size: clamp(13px,1.8vw,15px);
@@ -365,15 +395,20 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
   <div class="hero-overlay"></div>
   <div class="hero-grid-bg"></div>
   <div class="hero-content">
-    <div class="hero-company fade-in">
-      <div class="hero-company-name">SECURITY OUTCOME</div>
-      <div class="hero-company-ja">セキュリティアウトカム合同会社</div>
+    <div class="hero-logo-area fade-in">
+      <div class="hero-logo-placeholder">
+        <i class="ti ti-shield" aria-hidden="true"></i>
+        <span>LOGO</span>
+      </div>
     </div>
     <div class="hero-eyebrow fade-in fade-in-delay-1"><span class="live-dot"></span>SECURITY &amp; RISK CONTROL</div>
     <h1 class="hero-title fade-in fade-in-delay-1">
       <span class="hero-line1">安全を <em>結果</em> で示す</span>
-      <span class="line2">SECURITY OUTCOME LLC</span>
     </h1>
+    <div class="hero-brand fade-in fade-in-delay-2">
+      <div class="hero-brand-en">SECURITY OUTCOME LLC</div>
+      <div class="hero-brand-ja">セキュリティアウトカム合同会社</div>
+    </div>
     <p class="hero-desc fade-in fade-in-delay-2">施設警備・身辺警護・SOCオペレーション・交通誘導。経験豊富なプロフェッショナルがあらゆる脅威からお客様と大切なものを守ります。</p>
     <div class="hero-btns fade-in fade-in-delay-3">
       <a href="contact.html" class="btn-gold">無料でご相談</a>
