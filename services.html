@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>業務内容 | セキュリティアウトカム合同会社</title>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+/* ── サービス詳細カード ── */
+.svc-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+}
+.svc-detail:last-child { border-bottom: none; }
+.svc-detail.reverse { direction: rtl; }
+.svc-detail.reverse > * { direction: ltr; }
+.svc-icon-lg {
+  width: 64px; height: 64px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-size: 28px;
+  margin-bottom: 20px;
+}
+.svc-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px; letter-spacing: 3px;
+  color: var(--muted); margin-bottom: 8px;
+}
+.svc-detail h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(24px,4vw,38px);
+  letter-spacing: 0.07em; color: #fff;
+  margin-bottom: 16px; line-height: 1.2;
+}
+.svc-detail p { color: var(--muted); font-size: 13px; line-height: 2.1; margin-bottom: 12px; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.tag {
+  font-size: 10px; letter-spacing: 1.5px;
+  border: 1px solid var(--border);
+  color: var(--accent); padding: 4px 12px;
+  border-radius: 2px;
+}
+.svc-visual {
+  background: var(--navy3);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 80px; color: rgba(200,168,75,0.15);
+  position: relative; overflow: hidden;
+}
+.svc-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(200,168,75,0.04) 1px, transparent 1px),
+    linear-gradient(90deg,rgba(200,168,75,0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.svc-visual i { position: relative; z-index: 1; font-size: 72px; }
+
+/* 対象一覧 */
+.target-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+.target-card {
+  background: var(--navy3);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 24px 20px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.target-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  border: 1px solid var(--border); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-size: 16px;
+}
+.target-card h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.target-card p { font-size: 11px; color: var(--muted); line-height: 1.8; }
+
+@media (max-width: 768px) {
+  .svc-detail { grid-template-columns: 1fr; gap: 28px; }
+  .svc-detail.reverse { direction: ltr; }
+  .svc-visual { aspect-ratio: 16/7; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo-mark">Security Outcome<small>セキュリティアウトカム合同会社</small></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="services.html" class="active">業務内容</a></li>
+    <li><a href="strength.html">強み</a></li>
+    <li><a href="company.html">会社情報</a></li>
+    <li><a href="team.html">メンバー</a></li>
+    <li><a href="recruit.html">採用情報</a></li>
+  </ul>
+  <a href="contact.html" class="nav-btn">お問い合わせ</a>
+  <div class="nav-hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-ring ph-r1"></div>
+  <div class="page-hero-ring ph-r2"></div>
+  <div class="wrap page-hero-content">
+    <div class="page-label">SERVICES</div>
+    <h1 class="page-title">業務内容</h1>
+    <p class="page-sub">施設警備から身辺警護・SOCオペレーションまで企業・個人のあらゆるセキュリティニーズに対応します</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="svc-detail">
+      <div>
+        <div class="svc-num">SERVICE 01</div>
+        <div class="svc-icon-lg"><i class="ti ti-building" aria-hidden="true"></i></div>
+        <h2>施設警備</h2>
+        <p>企業には攻撃的不審者・悪質クレーマーの来館、火災・地震発生、デモ行為、脅迫電話、傷病者発生など様々な脅威が存在します。</p>
+        <p>弊社は未然防止を第一としながらも、万一トラブルが起きた際の損失回避・最小化を重視します。スタッフには日々の反復訓練と振り返りを課し、緊急時でも即座に動ける体制を維持しています。</p>
+        <div class="svc-tags">
+          <span class="tag">オフィス</span>
+          <span class="tag">商業施設</span>
+          <span class="tag">医療機関</span>
+          <span class="tag">教育機関</span>
+        </div>
+      </div>
+      <div class="svc-visual"><i class="ti ti-building" aria-hidden="true"></i></div>
+    </div>
+
+    <div class="svc-detail reverse">
+      <div>
+        <div class="svc-num">SERVICE 02</div>
+        <div class="svc-icon-lg"><i class="ti ti-user-shield" aria-hidden="true"></i></div>
+        <h2>身辺警護 / ボディーガード</h2>
+        <p>危険な状況を回避し、安全と安心を確保します。警護訓練・刑法などの関連法律・格闘術への精通はもちろん、ビジネスマナーや英会話の教育を受けたスタッフが対応します。</p>
+        <p>目立たない警護、必要な時だけに限定した警護など、脅威レベルや状況・ご希望に応じて柔軟に対応します。企業役員のBCP対策から芸能人・著名人のストーカー対策まで幅広く承ります。</p>
+        <div class="svc-tags">
+          <span class="tag">企業役員</span>
+          <span class="tag">著名人・芸能人</span>
+          <span class="tag">個人</span>
+          <span class="tag">短期・長期</span>
+        </div>
+      </div>
+      <div class="svc-visual"><i class="ti ti-user-shield" aria-hidden="true"></i></div>
+    </div>
+
+    <div class="svc-detail">
+      <div>
+        <div class="svc-num">SERVICE 03</div>
+        <div class="svc-icon-lg"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
+        <h2>SOCオペレーション</h2>
+        <p>埼玉県内の大規模データセンターにおけるセキュリティオペレーションセンター（SOC）業務を担当しています。24時間365日の有人監視、入退室管理、インシデント対応まで一貫して対応します。</p>
+        <p>大手外資金融機関のセキュリティチーム指揮経験を持つ代表のもと、重要インフラに求められる高水準のセキュリティを提供しています。</p>
+        <div class="svc-tags">
+          <span class="tag">データセンター</span>
+          <span class="tag">24H有人監視</span>
+          <span class="tag">入退室管理</span>
+          <span class="tag">重要インフラ</span>
+        </div>
+      </div>
+      <div class="svc-visual"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
+    </div>
+
+    <div class="svc-detail reverse">
+      <div>
+        <div class="svc-num">SERVICE 04</div>
+        <div class="svc-icon-lg"><i class="ti ti-home" aria-hidden="true"></i></div>
+        <h2>私邸警備</h2>
+        <p>訓練された警護員による巡回・監視警戒により、窃盗・特殊詐欺犯などから自宅を守ります。防犯カメラでは発見が困難な下見段階での犯罪抑止が可能です。</p>
+        <p>犯罪者にとって「入れない家」と思わせることが最大の防犯効果です。緊急時にはボディーガードとしても迅速に展開します。</p>
+        <div class="svc-tags">
+          <span class="tag">個人宅</span>
+          <span class="tag">経営者邸宅</span>
+          <span class="tag">巡回警備</span>
+          <span class="tag">監視警戒</span>
+        </div>
+      </div>
+      <div class="svc-visual"><i class="ti ti-home" aria-hidden="true"></i></div>
+    </div>
+
+    <div class="svc-detail">
+      <div>
+        <div class="svc-num">SERVICE 05</div>
+        <div class="svc-icon-lg"><i class="ti ti-car" aria-hidden="true"></i></div>
+        <h2>交通誘導・イベント警備</h2>
+        <p>入場者および手荷物検査等の出入り検査のほか、巡回警備・交通誘導など人的警備を実施します。</p>
+        <p>アイドル・著名人のイベントでは身辺警護と一体化した会場警備が特に効果的です。大小問わずあらゆる規模のイベントに対応します。</p>
+        <div class="svc-tags">
+          <span class="tag">コンサート</span>
+          <span class="tag">企業イベント</span>
+          <span class="tag">交通誘導</span>
+          <span class="tag">手荷物検査</span>
+        </div>
+      </div>
+      <div class="svc-visual"><i class="ti ti-car" aria-hidden="true"></i></div>
+    </div>
+
+    <div class="svc-detail reverse">
+      <div>
+        <div class="svc-num">SERVICE 06</div>
+        <div class="svc-icon-lg"><i class="ti ti-world" aria-hidden="true"></i></div>
+        <h2>インターナショナル対応</h2>
+        <p>英会話教育を受けたスタッフが在籍しており、外資系企業・インターナショナルスクールへの警備サービスを提供しています。</p>
+        <p>言語の壁なく迅速かつ的確な対応が可能です。外国語話者の多い環境での警備をお探しの企業様はお気軽にご相談ください。</p>
+        <div class="svc-tags">
+          <span class="tag">外資系企業</span>
+          <span class="tag">インターナショナルスクール</span>
+          <span class="tag">英語対応</span>
+        </div>
+      </div>
+      <div class="svc-visual"><i class="ti ti-world" aria-hidden="true"></i></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">COVERAGE</span>
+      <div class="sec-title">対応可能なクライアント</div>
+    </div>
+    <div class="target-grid">
+      <div class="target-card">
+        <div class="target-icon"><i class="ti ti-building-skyscraper" aria-hidden="true"></i></div>
+        <div><h4>一般企業・オフィス</h4><p>施設警備・受付対応・緊急初期対応</p></div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon"><i class="ti ti-server" aria-hidden="true"></i></div>
+        <div><h4>データセンター・重要施設</h4><p>SOC業務・24時間有人監視</p></div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon"><i class="ti ti-user-check" aria-hidden="true"></i></div>
+        <div><h4>企業役員・経営者</h4><p>身辺警護・BCP対策・私邸警備</p></div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon"><i class="ti ti-star" aria-hidden="true"></i></div>
+        <div><h4>芸能人・著名人・アイドル</h4><p>イベント警護・ストーカー対策</p></div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
+        <div><h4>インターナショナルスクール</h4><p>英語対応スタッフによる施設警備</p></div>
+      </div>
+      <div class="target-card">
+        <div class="target-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+        <div><h4>個人・ご家族</h4><p>私邸警備・身辺警護・短期案件</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-strip">
+  <div class="wrap">
+    <div class="strip-inner">
+      <div class="strip-text">
+        <h3>まずはご相談ください</h3>
+        <p>警備・セキュリティに関するご相談はすべて無料で承ります<br>Tel: 045-550-7022</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="contact.html" class="btn-gold">無料でご相談</a>
+        <a href="tel:0455507022" class="btn-ghost">電話する</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="f-logo">Security Outcome</div>
+        <p>セキュリティアウトカム合同会社<br>神奈川県公安委員会警備業認定 第45001382号</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>SERVICES</h4>
+          <ul>
+            <li><a href="services.html">施設警備</a></li>
+            <li><a href="services.html">身辺警護</a></li>
+            <li><a href="services.html">SOCオペレーション</a></li>
+            <li><a href="services.html">イベント警備</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>COMPANY</h4>
+          <ul>
+            <li><a href="company.html">会社情報</a></li>
+            <li><a href="team.html">メンバー</a></li>
+            <li><a href="strength.html">強み</a></li>
+            <li><a href="recruit.html">採用情報</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>CONTACT</h4>
+          <ul>
+            <li><a href="tel:0455507022">045-550-7022</a></li>
+            <li><a href="mailto:info@security-outcome.co.jp">info@security-outcome.co.jp</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">© 2024 セキュリティアウトカム合同会社 / Security Outcome LLC</p>
+  </div>
+</footer>
+
+<style>
+.nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(8,18,34,0.98); padding: 16px 24px; gap: 16px; border-bottom: 1px solid var(--border); }
+</style>
+</body>
+</html>
