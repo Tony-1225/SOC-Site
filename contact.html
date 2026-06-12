@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : contact.html
-  バージョン   : v25
-  更新内容     : Web3Formsフォーム送信機能を実装
+  バージョン   : v28
+  更新内容     : 全ページbrタグ除去・break-all修正・v28統一
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -34,7 +34,7 @@
   color: var(--accent); font-size: 20px;
 }
 .ci-label { font-size: 10px; color: var(--muted); letter-spacing: 2px; margin-bottom: 3px; }
-.ci-val { font-size: 14px; color: #fff; font-weight: 500; text-decoration: none; overflow-wrap: break-word; word-break: break-all; }
+.ci-val { font-size: 14px; color: #fff; font-weight: 500; text-decoration: none; overflow-wrap: break-word; word-break: normal; }
 .ci-val:hover { color: var(--accent); }
 
 /* フォーム */
@@ -287,7 +287,7 @@ nav {
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="f-logo">Security Outcome</div>
-        <p>セキュリティアウトカム合同会社<br>神奈川県公安委員会警備業認定 第45001382号</p>
+        <p>セキュリティアウトカム合同会社</p><p>神奈川県公安委員会警備業認定 第45001382号</p>
       </div>
       <div class="footer-links">
         <div class="footer-col"><h4>SERVICES</h4><ul><li><a href="services.html">施設警備</a></li><li><a href="services.html">身辺警護</a></li><li><a href="services.html">SOCオペレーション</a></li></ul></div>
