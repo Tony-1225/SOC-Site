@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : index.html
-  バージョン   : v31
-  更新内容     : hero-contentをflexbox中央寄せに変更・desc幅修正
+  バージョン   : v32
+  更新内容     : タイトルを日本語フォント+縦グラデーションで高級感演出
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -93,14 +93,51 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy); color: 
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
 .hero-title {
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 0.05em; line-height: 1.0;
-  color: #fff; margin-bottom: 12px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 16px;
+  line-height: 1.0;
+}
+.hero-line1 {
+  display: block;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: clamp(32px, 7vw, 88px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
   text-align: center;
   width: 100%;
+  /* 高級感のあるゴールド×シルバーグラデーション */
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #e8eaf0 30%,
+    #c8a84b 55%,
+    #fff0b0 65%,
+    #c8a84b 75%,
+    #a07830 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 12px rgba(200,168,75,0.35));
+  /* テキストシャドウ代わりにfilterでグロー */
 }
-.hero-line1 { display: block; font-size: clamp(36px, 9vw, 110px); white-space: nowrap; text-align: center; width: 100%; }
-.hero-title em { color: var(--accent); font-style: normal; }
+.hero-title em {
+  font-style: normal;
+  background: linear-gradient(
+    180deg,
+    #fff8c0 0%,
+    #e8c86a 25%,
+    #c8a84b 50%,
+    #fff0b0 65%,
+    #a07830 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 16px rgba(200,168,75,0.6));
+}
 .hero-brand {
   margin-bottom: 28px;
   margin-top: 10px;
@@ -117,8 +154,9 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy); color: 
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 4s linear infinite;
-  filter: drop-shadow(0 0 12px rgba(200,168,75,0.4));
+  filter: drop-shadow(0 0 20px rgba(200,168,75,0.5));
   white-space: nowrap;
+  letter-spacing: 0.18em;
 }
 .hero-brand-ja {
   font-size: clamp(10px, 2vw, 13px);
