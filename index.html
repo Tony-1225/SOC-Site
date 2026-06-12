@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : index.html
-  バージョン   : v30
-  更新内容     : ヒーロー全要素をtext-align:centerで確実に中央寄せ
+  バージョン   : v31
+  更新内容     : hero-contentをflexbox中央寄せに変更・desc幅修正
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -65,7 +65,7 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy); color: 
   background-image: linear-gradient(rgba(200,168,75,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(200,168,75,0.04) 1px, transparent 1px);
   background-size: 64px 64px;
 }
-.hero-content { position: relative; z-index: 3; max-width: 800px; width: 100%; text-align: center; }
+.hero-content { position: relative; z-index: 3; max-width: 860px; width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; }
 
 .hero-logo-area {
   margin-bottom: 28px;
@@ -131,10 +131,11 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy); color: 
 
 .hero-desc {
   color: var(--muted); font-size: clamp(13px,1.8vw,15px);
-  max-width: 560px; margin: 24px auto 40px; line-height: 2.1; font-weight: 300;
+  width: 100%; max-width: 640px; margin: 24px auto 40px; line-height: 2; font-weight: 300;
   text-align: center;
   word-break: normal;
   overflow-wrap: break-word;
+  display: block;
 }
 .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
 .btn-gold { display: inline-block; background: var(--accent); color: var(--navy); padding: 15px 36px; border-radius: 3px; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
