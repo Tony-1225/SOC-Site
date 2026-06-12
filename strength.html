@@ -1,0 +1,353 @@
+<!--
+  ファイル種別 : HTML
+  ファイル名   : strength.html
+  バージョン   : v28
+  更新内容     : 全ページbrタグ除去・break-all修正・v28統一
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>強み | セキュリティアウトカム合同会社</title>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+.strength-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.str-card {
+  background: var(--navy2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.2s;
+}
+.str-card:hover { border-color: rgba(200,168,75,0.5); transform: translateY(-3px); }
+.str-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.str-card:hover::before { opacity: 1; }
+.str-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  color: rgba(200,168,75,0.08);
+  letter-spacing: 2px;
+  line-height: 1;
+  position: absolute;
+  top: 16px; right: 20px;
+}
+.str-icon { font-size: 28px; color: var(--accent); margin-bottom: 18px; }
+.str-card h3 {
+  font-size: 16px; font-weight: 700; color: #fff;
+  margin-bottom: 14px; line-height: 1.5;
+  position: relative;
+}
+.str-card p {
+  font-size: 13px; color: var(--muted);
+  line-height: 2.1; position: relative;
+}
+
+/* PDCAサイクル */
+.cycle-section { padding: 80px 0; }
+.cycle-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.cycle-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(24px,4vw,38px);
+  letter-spacing: 0.07em; color: #fff;
+  margin-bottom: 16px; line-height: 1.2;
+}
+.cycle-text { color: var(--muted); font-size: 13px; line-height: 2.1; margin-bottom: 16px; }
+.cycle-steps { display: flex; flex-direction: column; gap: 0; }
+.cycle-step {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cycle-step:last-child { border-bottom: none; }
+.step-badge {
+  background: rgba(200,168,75,0.1);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px; letter-spacing: 2px;
+  padding: 4px 10px; border-radius: 2px;
+  flex-shrink: 0; margin-top: 2px;
+}
+.step-body h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.step-body p { font-size: 12px; color: var(--muted); line-height: 1.8; }
+
+/* 法律バナー */
+.law-banner {
+  background: var(--navy3);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r);
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+.law-banner h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.law-banner h3 i { color: var(--accent); font-size: 20px; }
+.law-banner p { font-size: 13px; color: var(--muted); line-height: 2.1; }
+.law-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.law-tag {
+  font-size: 10px; letter-spacing: 1px;
+  border: 1px solid var(--border);
+  color: var(--muted); padding: 4px 10px;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .strength-grid { grid-template-columns: 1fr; }
+  .cycle-inner { grid-template-columns: 1fr; gap: 36px; }
+}
+
+nav {
+  background: rgba(8,18,34,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  padding: 0 16px;
+  gap: 8px;
+}
+.nav-home-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 20px;
+  transition: background 0.2s, border-color 0.2s;
+  -webkit-text-fill-color: var(--accent);
+}
+.nav-home-btn:hover {
+  background: rgba(200,168,75,0.1);
+  border-color: var(--accent);
+}
+.nav-home-empty {
+  width: 40px;
+  height: 40px;
+}
+.nav-center-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-center-btn {
+  background: var(--accent);
+  color: var(--navy);
+  padding: 9px 24px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.nav-center-btn:hover { background: var(--acc2); }
+.nav-right-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.nav-links { display: flex; gap: 20px; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 1px; transition: color 0.2s; white-space: nowrap; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--muted); border-radius: 2px; }
+.nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: rgba(8,18,34,0.98); padding: 16px 24px; gap: 16px; border-bottom: 1px solid var(--border); z-index: 199; }
+@media(max-width: 768px) {
+  nav { grid-template-columns: 44px 1fr 44px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-home-btn" aria-label="ホームへ戻る"><i class="ti ti-home" aria-hidden="true"></i></a>
+  <div class="nav-center-wrap">
+    <a href="contact.html" class="nav-center-btn">CONTACT</a>
+  </div>
+  <div class="nav-right-wrap">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="services.html">業務内容</a></li>
+      <li><a href="strength.html" class="active">強み</a></li>
+      <li><a href="company.html">会社情報</a></li>
+      <li><a href="team.html">メンバー</a></li>
+      <li><a href="recruit.html">採用情報</a></li>
+    </ul>
+    <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-ring ph-r1"></div>
+  <div class="page-hero-ring ph-r2"></div>
+  <div class="wrap page-hero-content">
+    <div class="page-label">STRENGTHS</div>
+    <h1 class="page-title">我々の強み</h1>
+    <p class="page-sub">経験・法律知識・継続的改善サイクルが支える高水準のセキュリティサービス</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-label">CORE STRENGTHS</span>
+      <div class="sec-title">選ばれる4つの理由</div>
+    </div>
+    <div class="strength-grid">
+      <div class="str-card">
+        <span class="str-num">01</span>
+        <div class="str-icon"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
+        <h3>経営層レベルの実務経験</h3>
+        <p>代表は陸上自衛隊・大手外資金融機関のセキュリティチーム指揮を経て、某国ロイヤルファミリーの警護・私邸警備にも従事。単なる警備にとどまらないリスクマネジメントの視点から最適なセキュリティを提供します。</p>
+      </div>
+      <div class="str-card">
+        <span class="str-num">02</span>
+        <div class="str-icon"><i class="ti ti-repeat" aria-hidden="true"></i></div>
+        <h3>緊急時対応力と即応体制</h3>
+        <p>万一の緊急事態においても迅速行動・正確判断がとれるよう反復訓練を徹底しています。初期対応の質が損失の大きさを左右するという信念のもと、スタッフ全員が常に即応できる状態を維持しています。</p>
+      </div>
+      <div class="str-card">
+        <span class="str-num">03</span>
+        <div class="str-icon"><i class="ti ti-gavel" aria-hidden="true"></i></div>
+        <h3>法律を駆使したリスク回避</h3>
+        <p>警備業法・刑法・刑事訴訟法・民法・憲法などの関連法律に精通したスタッフが対応。不審者・悪質クレーマー対応時にも法的知識に基づいた証拠固めを行い、後々の折衝を有利に進めます。</p>
+      </div>
+      <div class="str-card">
+        <span class="str-num">04</span>
+        <div class="str-icon"><i class="ti ti-language" aria-hidden="true"></i></div>
+        <h3>英語対応・グローバル対応力</h3>
+        <p>英会話教育を受けたスタッフが在籍し、外資系企業・インターナショナルスクールへの対応も可能です。ビジネスマナー教育も実施しており、高水準の接客品質を保ちながら警備を提供します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cycle-section section-dark">
+  <div class="wrap">
+    <div class="cycle-inner">
+      <div>
+        <span class="sec-label" style="display:block;margin-bottom:10px">IMPROVEMENT CYCLE</span>
+        <div class="cycle-title">継続的改善による品質向上</div>
+        <p class="cycle-text">知識は実務に活用・応用できてこそ価値が高まります。弊社では以下のサイクルを実践し、常にサービス品質の向上に努めています。</p>
+        <div class="cycle-steps">
+          <div class="cycle-step">
+            <span class="step-badge">INPUT</span>
+            <div class="step-body">
+              <h4>新しい経験・情報の取得</h4>
+              <p>現場経験・最新の犯罪手口・法律改正など常に新しい情報をインプットします</p>
+            </div>
+          </div>
+          <div class="cycle-step">
+            <span class="step-badge">TRAIN</span>
+            <div class="step-body">
+              <h4>反復訓練・実践</h4>
+              <p>習得した知識をシナリオ訓練で反復し、緊急時に自動的に体が動くレベルまで定着させます</p>
+            </div>
+          </div>
+          <div class="cycle-step">
+            <span class="step-badge">REVIEW</span>
+            <div class="step-body">
+              <h4>振り返りと評価</h4>
+              <p>一日の業務終了後に自己評価と改善点の洗い出しを行います</p>
+            </div>
+          </div>
+          <div class="cycle-step">
+            <span class="step-badge">IMPROVE</span>
+            <div class="step-body">
+              <h4>フィードバックと改善</h4>
+              <p>評価結果を次の訓練・業務計画に反映し、継続的にサービスを向上させます</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="law-banner">
+          <h3><i class="ti ti-scale" aria-hidden="true"></i>法律知識に基づく警備</h3>
+          <p>法的知識のない警備員の対応は、相手方の権利・自由に干渉し不法行為となるリスクがあります。弊社スタッフは関連法律に精通しており、トラブル時も適切な証拠固めと法的根拠に基づいた対応を実施します。</p>
+          <div class="law-tags">
+            <span class="law-tag">警備業法</span>
+            <span class="law-tag">刑法</span>
+            <span class="law-tag">刑事訴訟法</span>
+            <span class="law-tag">民法</span>
+            <span class="law-tag">憲法</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-strip">
+  <div class="wrap">
+    <div class="strip-inner">
+      <div class="strip-text">
+        <h3>まずはご相談ください</h3>
+        <p>警備・セキュリティに関するご相談はすべて無料で承ります</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="contact.html" class="btn-gold">無料でご相談</a>
+        <a href="tel:0455507022" class="btn-ghost">電話する</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="f-logo">Security Outcome</div>
+        <p>セキュリティアウトカム合同会社</p><p>神奈川県公安委員会警備業認定 第45001382号</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>SERVICES</h4><ul><li><a href="services.html">施設警備</a></li><li><a href="services.html">身辺警護</a></li><li><a href="services.html">SOCオペレーション</a></li></ul></div>
+        <div class="footer-col"><h4>COMPANY</h4><ul><li><a href="company.html">会社情報</a></li><li><a href="team.html">メンバー</a></li><li><a href="recruit.html">採用情報</a></li></ul></div>
+        <div class="footer-col"><h4>CONTACT</h4><ul><li><a href="tel:0455507022">045-550-7022</a></li><li><a href="mailto:info@security-outcome.co.jp">info@security-outcome.co.jp</a></li></ul></div>
+      </div>
+    </div>
+    <p class="footer-copy">© 2024 セキュリティアウトカム合同会社 / Security Outcome LLC</p>
+  </div>
+</footer>
+
+<style>
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:background 0.2s;}
+.nav-hamburger:hover span{background:var(--accent);}
+.nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(8,18,34,0.98);padding:16px 24px;gap:16px;border-bottom:1px solid var(--border);z-index:199;}
+@media(max-width:768px){.nav-hamburger{display:flex;}}
+</style>
+</body>
+</html>
