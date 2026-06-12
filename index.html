@@ -1,8 +1,8 @@
 <!--
   ファイル種別 : HTML
   ファイル名   : index.html
-  バージョン   : v32
-  更新内容     : タイトルを日本語フォント+縦グラデーションで高級感演出
+  バージョン   : v33
+  更新内容     : タイトルに登場・シマー・グロー点滅アニメーション追加・フッターにバージョン表示
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -92,6 +92,25 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy); color: 
 .live-dot { width: 6px; height: 6px; background: #2ecc71; border-radius: 50%; animation: blink 2s infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
+/* ── タイトルアニメーション keyframes ── */
+@keyframes titleReveal {
+  0%   { opacity: 0; transform: translateY(40px) scale(0.92); filter: blur(8px) drop-shadow(0 0 0px rgba(200,168,75,0)); }
+  60%  { opacity: 1; transform: translateY(-4px) scale(1.02); filter: blur(0px) drop-shadow(0 2px 24px rgba(200,168,75,0.5)); }
+  100% { opacity: 1; transform: translateY(0) scale(1);       filter: blur(0px) drop-shadow(0 2px 12px rgba(200,168,75,0.35)); }
+}
+@keyframes shimmerTitle {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes glowPulse {
+  0%,100% { filter: drop-shadow(0 2px 12px rgba(200,168,75,0.35)); }
+  50%      { filter: drop-shadow(0 2px 28px rgba(200,168,75,0.7)) drop-shadow(0 0 40px rgba(200,168,75,0.3)); }
+}
+@keyframes emGlow {
+  0%,100% { filter: drop-shadow(0 0 16px rgba(200,168,75,0.5)); }
+  50%      { filter: drop-shadow(0 0 32px rgba(232,200,106,0.9)) drop-shadow(0 0 60px rgba(200,168,75,0.4)); }
+}
+
 .hero-title {
   width: 100%;
   text-align: center;
@@ -107,36 +126,47 @@ body { font-family: 'Noto Sans JP', sans-serif; background: var(--navy); color: 
   white-space: nowrap;
   text-align: center;
   width: 100%;
-  /* 高級感のあるゴールド×シルバーグラデーション */
   background: linear-gradient(
-    180deg,
-    #ffffff 0%,
+    110deg,
+    #a07830 0%,
+    #c8a84b 15%,
     #e8eaf0 30%,
-    #c8a84b 55%,
-    #fff0b0 65%,
-    #c8a84b 75%,
+    #ffffff 40%,
+    #fff0b0 50%,
+    #c8a84b 65%,
+    #e8eaf0 75%,
+    #ffffff 85%,
     #a07830 100%
   );
+  background-size: 250% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 12px rgba(200,168,75,0.35));
-  /* テキストシャドウ代わりにfilterでグロー */
+  /* 登場アニメーション + グロー点滅 */
+  animation:
+    titleReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both,
+    shimmerTitle 5s linear 1.5s infinite,
+    glowPulse 3s ease-in-out 1.5s infinite;
 }
 .hero-title em {
   font-style: normal;
   background: linear-gradient(
-    180deg,
-    #fff8c0 0%,
-    #e8c86a 25%,
-    #c8a84b 50%,
-    #fff0b0 65%,
+    110deg,
+    #a07830 0%,
+    #e8c86a 20%,
+    #fff8c0 40%,
+    #e8c86a 60%,
+    #c8a84b 80%,
     #a07830 100%
   );
+  background-size: 250% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 16px rgba(200,168,75,0.6));
+  animation:
+    titleReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both,
+    shimmerTitle 4s linear 1.7s infinite,
+    emGlow 2.5s ease-in-out 1.7s infinite;
 }
 .hero-brand {
   margin-bottom: 28px;
@@ -357,6 +387,7 @@ footer { background: #040c1a; border-top: 1px solid var(--border); padding: 56px
 .footer-col a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; font-weight: 300; }
 .footer-col a:hover { color: var(--accent); }
 .footer-copy { text-align: center; font-size: 11px; color: var(--muted); letter-spacing: 1px; font-weight: 300; }
+.footer-version { text-align: center; font-size: 10px; color: rgba(200,168,75,0.3); letter-spacing: 2px; margin-top: 6px; font-family: 'Bebas Neue', sans-serif; }
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px) {
@@ -799,6 +830,7 @@ nav {
       </div>
     </div>
     <p class="footer-copy">© 2024 セキュリティアウトカム合同会社 / Security Outcome LLC</p>
+    <p class="footer-version">v33</p>
   </div>
 </footer>
 
